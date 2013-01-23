@@ -1,7 +1,7 @@
 PassGenerator
 =============
 
-This simple python script generate a diversity of random passwords relying on user's parameters. The password is not saved my this program, though it may be kept in your terminal session.
+This simple python script generate a diversity of random passwords relying on user's parameters. The password is not saved by this program, though it may be kept in your terminal session.
 
 Running
 -------
