@@ -41,17 +41,17 @@ class Password:
     opt = random.randint(0,3)
 
     if opt == 3:
-      return select_others()
+      return self.select_others()
     elif opt == 2:
-      return select_num()
+      return self.select_num()
     else:
-      return select_char()
+      return self.select_char()
 
   ''' Create password given the parameters '''
   def get_pass(self):
     psw_ = [];
 
     for i in range(self.size):
-      psw_.append(select_next())
+      psw_.append(self.select_next())
 
     return ''.join(psw_)

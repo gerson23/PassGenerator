@@ -40,7 +40,5 @@ class PassGenerator:
 if __name__ == "__main__":
   pg = PassGenerator()
   size, chars, num, other = pg.parse(sys.argv[1:])
-  print size
-  print chars
-  print num
-  print other
+  psw = ps.Password(size, chars, num, other)
+  print ">>", psw.get_pass()
