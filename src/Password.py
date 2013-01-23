@@ -1,3 +1,7 @@
+""" Password Generator Program """
+
+__author__ = "gerson23"
+
 import random
 
 class Password:

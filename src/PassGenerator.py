@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+""" Password Generator Program """
+
+__author__ = "gerson23"
+
 import Password as ps
 import sys, getopt
 
