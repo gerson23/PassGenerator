@@ -38,7 +38,7 @@ class Password:
 
   ''' Chooses type of next character and returns it '''
   def select_next(self):
-    opt = random.randint(0,3)
+    opt = random.randint(0,4)
 
     if opt == 3:
       return self.select_others()
