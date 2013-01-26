@@ -21,26 +21,26 @@ class Password:
 
     ''' Returns a random char '''
     def select_char(self):
-        if(not self.chars):
+        if not self.chars:
             return
 
         is_caps = bool(random.getrandbits(1))
 
-        if(is_caps):
+        if is_caps:
             return chr(random.randrange(65, 91))
         else:
             return chr(random.randrange(97, 123))
 
     ''' Return a random number converted to char '''
     def select_num(self):
-        if(not self.numbers):
+        if not self.numbers:
             return
 
         return chr(random.randrange(48, 58))
 
     ''' Return an alternate character '''
     def select_others(self):
-        if(not self.others):
+        if not self.others:
             return
 
         return random.choice('@#!&.')
