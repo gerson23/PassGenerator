@@ -2,7 +2,7 @@
 
 """ Password Generator Program """
 
-__author__ = "gerson23"
+__authors__ = "gerson23 and jbsilva"
 
 import Password as ps
 import sys, getopt

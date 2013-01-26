@@ -34,4 +34,4 @@ There are some option generating the password, explained as follows:
 Author
 ------
 
-  gerson23.
+  gerson23 and jbsilva
