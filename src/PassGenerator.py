@@ -24,19 +24,19 @@ class Password:
         if(not self.chars):
             return
 
-        is_caps = random.randint(0, 1)
+        is_caps = bool(random.getrandbits(1))
 
         if(is_caps):
-            return chr(random.randint(65, 90))
+            return chr(random.randrange(65, 91))
         else:
-            return chr(random.randint(97, 122))
+            return chr(random.randrange(97, 123))
 
     ''' Return a random number converted to char '''
     def select_num(self):
         if(not self.numbers):
             return
 
-        return chr(random.randint(48, 57))
+        return chr(random.randrange(48, 58))
 
     ''' Return an alternate character '''
     def select_others(self):
@@ -47,7 +47,7 @@ class Password:
 
     ''' Chooses type of next character and returns it '''
     def select_next(self):
-        opt = random.randint(0, 4)
+        opt = random.randrange(0, 5)
 
         if opt == 3:
             return self.select_others()
