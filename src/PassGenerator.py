@@ -5,45 +5,26 @@
 
 __authors__ = "gerson23 and jbsilva"
 
-import Password as ps
-import sys, getopt
-
-class PassGenerator:
-
-  def parse(self, argv):
-    # default value
-    size = 6
-    chars = True
-    num = True
-    other = True
-    # end defaults
-
-    try:
-      opts, args = getopt.getopt(argv, "d:lno")
-    except getopt.GetoptError:
-      print "PassGenerator.py [-d <dim>] [-l] [-n] [-o]"
-      sys.exit(2)
-
-    for opt, arg in opts:
-      if opt == "-d":
-        try:
-          size = int(arg)
-        except ValueError:
-          print "Invalid argument -d ",arg
-      elif opt == "-l":
-        chars = False
-      elif opt == "-n":
-        num = False
-      elif opt == "-o":
-        other = False
-      else:
-        print "Invalid argument ", opt
-
-    return size, chars, num, other
+import argparse
+import Password
 
 
 if __name__ == "__main__":
-  pg = PassGenerator()
-  size, chars, num, other = pg.parse(sys.argv[1:])
-  psw = ps.Password(size, chars, num, other)
-  print ">>", psw.get_pass()
+    parser = argparse.ArgumentParser(description='Password Generator Program.',
+                                     epilog='This program generates passwords')
+    parser.add_argument('-l', '--length', type=str, default=10,
+                        help='Length of password')
+    parser.add_argument('-nc', '--no_chars', dest="chars",
+                        action='store_false',
+                        help='Excludes characters [a-zA-Z] from password.')
+    parser.add_argument('-nn', '--no_numbers', dest="num",
+                        action='store_false',
+                        help='Excludes numbers from password.')
+    parser.add_argument('-ns', '--no_special', dest="other",
+                        action='store_false',
+                        help='Excludes miscellaneous characters.')
+
+    args = parser.parse_args()
+    psw = Password.Password(args.length, args.chars, args.num, args.other)
+
+    print ">>", psw.get_pass()
