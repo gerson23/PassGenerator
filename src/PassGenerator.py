@@ -5,12 +5,12 @@
 
 __authors__ = "gerson23 and jbsilva"
 
+import sys
 import argparse
 import random
 
 
 class Password:
-
     ''' Class constructor '''
     def __init__(self, size, chars, numbers, others):
 
@@ -66,7 +66,7 @@ class Password:
         return ''.join(psw_)
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description='Password Generator Program.',
                                      epilog='This program generates passwords')
     parser.add_argument('-l', '--length', type=int, default=10,
@@ -82,6 +82,15 @@ if __name__ == "__main__":
                         help='Excludes miscellaneous characters.')
 
     args = parser.parse_args()
-    psw = Password(args.length, args.chars, args.num, args.other)
 
-    print ">>", psw.get_pass()
+    if not (args.chars or args.num or args.other):
+        print "You can't combine all the options!"
+        return 1
+    else:
+        psw = Password(args.length, args.chars, args.num, args.other)
+        print ">>", psw.get_pass()
+        return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
