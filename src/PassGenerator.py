@@ -13,17 +13,18 @@ import random
 class Password:
     ''' Class constructor '''
     def __init__(self, size, chars, numbers, others):
-
         self.size = size
-        self.chars = chars
-        self.numbers = numbers
-        self.others = others
+        self.opts = []
+
+        if chars:
+            self.opts.append('c')
+        if numbers:
+            self.opts.append('n')
+        if others:
+            self.opts.append('o')
 
     ''' Returns a random char '''
     def select_char(self):
-        if not self.chars:
-            return
-
         is_caps = bool(random.getrandbits(1))
 
         if is_caps:
@@ -33,25 +34,19 @@ class Password:
 
     ''' Return a random number converted to char '''
     def select_num(self):
-        if not self.numbers:
-            return
-
         return chr(random.randrange(48, 58))
 
     ''' Return an alternate character '''
     def select_others(self):
-        if not self.others:
-            return
-
         return random.choice('@#!&.')
 
     ''' Chooses type of next character and returns it '''
     def select_next(self):
-        opt = random.randrange(0, 5)
-
-        if opt == 3:
+        # The verification that 'opts' is not empty was made in main()
+        opt = random.choice(self.opts)
+        if opt == 'o':
             return self.select_others()
-        elif opt == 2:
+        elif opt == 'n':
             return self.select_num()
         else:
             return self.select_char()
