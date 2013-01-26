@@ -69,7 +69,7 @@ class Password:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Password Generator Program.',
                                      epilog='This program generates passwords')
-    parser.add_argument('-l', '--length', type=str, default=10,
+    parser.add_argument('-l', '--length', type=int, default=10,
                         help='Length of password')
     parser.add_argument('-nc', '--no_chars', dest="chars",
                         action='store_false',
