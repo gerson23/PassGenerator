@@ -1,4 +1,5 @@
-#!/usr/bin/python
+#!/usr/bin/env python2
+# -*-*- encoding: utf-8 -*-*-
 
 """ Password Generator Program """
 
