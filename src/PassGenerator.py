@@ -38,7 +38,7 @@ class Password:
 
     ''' Return an alternate character '''
     def select_others(self):
-        return random.choice('@#!&.')
+        return random.choice('_$+=-~()@#!&.|')
 
     ''' Chooses type of next character and returns it '''
     def select_next(self):
